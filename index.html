@@ -5,111 +5,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ster Dental Clinic</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #00b4d8; /* ڕەنگێکی گونجاو بۆ کلینیکی ددان */
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --text-color: #ffffff;
+            --primary-gold: #d4af37;
+            --glass-bg: rgba(0, 0, 0, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --text-main: #ffffff;
         }
 
         body {
-            font-family: 'Vazirmatn', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0f19;
+            /* وێنەی باکگراوند لێرە زیاد دەبێت */
             background-image: url('photo.jpg'); 
             background-size: cover; 
-            background-position: center;
+            background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            color: var(--text-color);
+            color: var(--text-main);
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
+            min-height: 100dvh;
             margin: 0;
-            padding: 20px;
+            padding: 20px 0;
             box-sizing: border-box;
         }
 
-        /* Overlay بۆ ئەوەی دەقەکان باشتر دیار بن لەسەر باکگراوند */
+        /* بۆ ئەوەی وێنەکە جوان دیار بێت و نوسینەکان بخوێندرێنەوە */
         body::before {
             content: "";
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* سێبەرێکی کەم بۆ باکگراوندەکە */
             z-index: -1;
         }
 
-        h1 {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: #fff;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            text-align: center;
-        }
-
         .card {
-            width: 100%;
+            width: 90%;
             max-width: 400px;
-            background: rgba(255, 255, 255, 0.1); 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
-            border-radius: 30px;
-            padding: 30px 20px;
+            border-radius: 40px;
+            padding: 40px 25px;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-gold);
+            padding: 5px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .names-container {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 20px;
+            margin: 5px 0;
+            color: var(--primary-gold);
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .about-section {
+            margin-bottom: 30px;
+        }
+
+        .about-text {
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 0;
+            color: #e2e8f0;
+            opacity: 0.9;
         }
 
         .btn-list {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 14px;
         }
 
         .btn {
             display: flex;
             align-items: center;
             padding: 15px 20px;
-            border-radius: 15px;
+            border-radius: 18px;
             text-decoration: none;
             color: white;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 15px;
             transition: all 0.3s ease;
             border: 1px solid var(--glass-border);
-            background: var(--glass-bg);
+            background: rgba(255, 255, 255, 0.08);
+            box-sizing: border-box;
         }
 
         .btn:hover {
-            transform: scale(1.03);
-            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
+        /* ڕەنگی سۆشیاڵ میدیاکان */
         .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border: none; }
         .tiktok { background: #000000; }
         .snapchat { background: #FFFC00; color: #000; border: none; }
-        .whatsapp { background: #25D366; }
-        .phone { background: #007bff; } /* ڕەنگی دوگمەی تەلەفۆن */
+        .whatsapp { background: #25D366; border: none; }
+        .call { background: #007bff; border: none; }
 
-        .btn i { font-size: 22px; width: 40px; text-align: center; }
-        .btn span { flex-grow: 1; text-align: center; margin-right: -40px; } /* بۆ ڕێکخستنی ناوەڕاست */
+        .btn i { font-size: 20px; width: 30px; }
+        .btn span { flex-grow: 1; text-align: center; margin-right: -30px; }
 
         .footer {
-            margin-top: 30px;
-            font-size: 11px;
-            opacity: 0.8;
-            letter-spacing: 1px;
-            font-family: sans-serif;
+            margin-top: 35px;
+            font-size: 10px;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
-    <h1>Ster Dental Clinic</h1>
-
     <div class="card">
+        <!-- لێرە لۆگۆکەت دابنێ -->
+        <img src="logo.jpg" alt="Ster Dental Clinic" class="logo-img">
+
+        <div class="names-container">
+            <h1>Dr. Fatima Khalid</h1>
+            <h1>Dr. Dilveen Shakir</h1>
+        </div>
+
+        <div class="about-section">
+            <p class="about-text">
+                بەکالوریوس نیشتەرگەریا دەڤ و ددانا<br>
+                جوانكاريا ددانا - چاندنا ددانا - راستکرنا ددانا
+            </p>
+        </div>
+
         <div class="btn-list">
             
             <a href="https://www.instagram.com/ster_dental_clinic?utm_source=qr&igsh=djlwMnlvMndrcWto" class="btn instagram" target="_blank">
@@ -132,9 +179,9 @@
                 <span>WhatsApp</span>
             </a>
 
-            <a href="tel:07517706941" class="btn phone">
-                <i class="fas fa-phone-alt"></i>
-                <span>call</span>
+            <a href="tel:07517706941" class="btn call">
+                <i class="fas fa-phone"></i>
+                <span>پەیوەندی کردن</span>
             </a>
             
         </div>
