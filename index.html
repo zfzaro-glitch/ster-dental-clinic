@@ -49,13 +49,19 @@
             width: 90%;
             max-width: 400px;
             background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur();
+            -webkit-backdrop-filter: blur();
             border: 1px solid var(--glass-border);
             border-radius: 40px;
             padding: 40px 25px;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            background-size: cover;       /* وێنەکە پڕ دەکات بەبێ تێکچوون */
+            background-position: center;   /* ناوەڕاستی وێنەکە نیشان دەدات */
+background-attachment: fixed;  /* وێنەکە جێگیر دەکات لە کاتی سکرۆڵ */
+
+
+
         }
 
         .logo-img {
